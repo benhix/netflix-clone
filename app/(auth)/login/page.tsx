@@ -39,7 +39,6 @@ export default async function Login() {
             </div>
 
             <div className="flex w-full justify-center items-center gap-x-3 mt-6">
-                <GithubSignInButton />
                 <GoogleSignInButton />
             </div>
 
