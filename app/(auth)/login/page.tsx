@@ -13,10 +13,15 @@ import { authOptions } from "@/app/utils/auth";
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";
 
-type Props = {}
+
 
 export default async function Login() {
     const session = await getServerSession(authOptions)
+
+    const demoLogin = () => {
+        const demoUserSessionToken = "demoUserToken";
+        localStorage.setItem("sessionToken", demoUserSessionToken)
+    }
 
     if (session) {
         return redirect('/home')
@@ -28,6 +33,7 @@ export default async function Login() {
                 <h1 className="text-3xl font-semibold text-white">Login</h1>
                 <div className="space-y-4 mt-5">
                     <Input type="email" name="email" placeholder="Email" className="bg-[#333] placeholder:test-xs placeholder:text-gray-400 w-full inline-block" />
+                    <Input type="password" name="password" placeholder="Password" className="bg-[#333] placeholder:test-xs placeholder:text-gray-400 w-full inline-block" />
                     <Button type="submit" variant="destructive" className="w-full bg-[#e50914]">Login</Button>
                 </div>
             </form>

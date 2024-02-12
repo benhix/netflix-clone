@@ -73,6 +73,12 @@ model WatchList {
   movieId Int?
 }
 
+model DemoUser {
+  id String @id @default(uuid())
+  email String
+  password String
+}
+
 model VerificationToken {
   identifier String
   token      String   @unique
